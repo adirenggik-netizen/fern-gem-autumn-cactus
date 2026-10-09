@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #070b16;
+  --color-surface: #10182c;
+  --color-surface-2: #17233d;
+  --color-fg: #eef2ff;
+  --color-muted: #b7c3de;
+  --color-faint: #8b9bbd;
+  --color-line: #2a3b63;
+  --color-gold: #8b7cff;
+  --color-gold-dim: #241c44;
+  --color-gold-ink: #f6f3ff;
+  --color-chart: #3cc7ff;
+  --color-up: #3dd68c;
+  --color-down: #ff7a93;
+  --color-down-dim: #3a1c28;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --radius-lg: 1rem;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-gold-ink);
+  }
+}
+
+@layer utilities {
+  .scroll-chips {
+    scrollbar-width: none;
+  }
+  .scroll-chips::-webkit-scrollbar {
+    display: none;
+  }
+  .panel {
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-line);
+    background: linear-gradient(180deg, var(--color-surface-2), var(--color-surface));
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-gold) 22%, transparent);
+  }
+  .tile {
+    border-radius: 0.85rem;
+    border: 1px solid var(--color-line);
+    background: color-mix(in srgb, var(--color-bg) 42%, var(--color-surface));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
